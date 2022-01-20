@@ -129,7 +129,7 @@ const exporter = () => {
   });
 
   return io.initModule({}, (err, conf) => {
-    const port = conf.port || 9209;
+    const port = process.env.PM2_EXPORTER_PORT || conf.port || 9209;
     const host = conf.host || '0.0.0.0';
 
     server.listen(port, host);
